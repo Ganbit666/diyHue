@@ -75,7 +75,7 @@ def set_light(address, light, data, rgb = None):
             brightness = int(100.0 * (value / 254.0))
             sendRequest ("http://"+address["ip"]+"/cm?cmnd=Dimmer%20" + str(brightness))
         elif key == "ct":
-            color = {}
+            sendRequest ("http://"+address["ip"]+"/cm?cmnd=CT%20" + str(value))
         elif key == "xy":
             if rgb:
                 color = rgbBrightness(rgb, light["state"]["bri"])
